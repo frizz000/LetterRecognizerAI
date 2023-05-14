@@ -43,6 +43,14 @@ public class DataLoader {
                 }
             }
         }
+//        for (int i = 0; i < labelList.size(); i++) {
+//            for (int j = i + 1; j < labelList.size(); j++) {
+//                if (labelList.get(i).equals(labelList.get(j))) {
+//                    labelList.remove(j);
+//                    j--;
+//                }
+//            }
+//        }
 
         return labelList;
     }

@@ -1,7 +1,7 @@
 public class Layer {
-    private Neuron[] neurons;
-    private double[] outputs;
-    private double[] deltas;
+    private final Neuron[] neurons;
+    private final double[] outputs;
+    private final double[] deltas;
 
     public Layer(int numInputs, int numNeurons) {
         this.neurons = new Neuron[numNeurons];
@@ -12,13 +12,14 @@ public class Layer {
         }
     }
 
-    public double[] forward(double[] inputs) {
+    //obliczanie wyjść warstwy
+    public void forward(double[] inputs) {
         for (int i = 0; i < neurons.length; i++) {
             outputs[i] = neurons[i].activate(inputs);
         }
-        return outputs;
     }
 
+    //blad sieci neuronowej
     public void calculateOutputLayerDeltas(double[] targetOutputs) {
         for (int i = 0; i < neurons.length; i++) {
             double output = outputs[i];

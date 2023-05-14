@@ -41,7 +41,7 @@ public class DrawingGUI {
     private void registerListeners() {
         recognizeButton.addActionListener(e -> {
             BufferedImage drawnImage = drawingPanel.getImage();
-            double[] features = ImageFeatureExtractor.extractFeatures(drawnImage);
+            double[] features = ImageFeatureExtractor.extractFeatures(drawnImage, 0.5);
             int bestLabelIndex = mlp.predictLabel(features);
 
             String predictedLabel = labels[bestLabelIndex];
@@ -62,7 +62,7 @@ public class DrawingGUI {
             graphics.setColor(Color.WHITE);
             graphics.fillRect(0, 0, width, height);
             graphics.setColor(Color.BLACK);
-            graphics.setStroke(new BasicStroke(10));
+            graphics.setStroke(new BasicStroke(5));
 
             MouseAdapter mouseAdapter = new MouseAdapter() {
                 private int prevX, prevY;

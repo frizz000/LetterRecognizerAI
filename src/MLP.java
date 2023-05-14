@@ -39,7 +39,9 @@ public class MLP {
         for (int epoch = 0; epoch < maxEpochs; epoch++) {
             for (int i = 0; i < trainImages.size(); i++) {
                 BufferedImage image = trainImages.get(i);
-                double[] inputs = ImageFeatureExtractor.extractFeatures(image);
+
+                double[] inputs = ImageFeatureExtractor.extractFeatures(image, 0.5);
+
                 int label = trainLabels.get(i);
 
                 double[] targetOutputs = new double[numLabels];
@@ -66,7 +68,7 @@ public class MLP {
                 int correctPredictions = 0;
                 for (int i = 0; i < testImages.size(); i++) {
                     BufferedImage image = testImages.get(i);
-                    double[] inputs = ImageFeatureExtractor.extractFeatures(image);
+                    double[] inputs = ImageFeatureExtractor.extractFeatures(image,0.5);
                     int trueLabel = testLabels.get(i);
                     int predictedLabel = predictLabel(inputs);
 
